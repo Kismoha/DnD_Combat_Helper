@@ -2,23 +2,23 @@ package main.rolls;
 
 import main.dice.DiceType;
 import main.dice.Die;
-import main.stats.MainStat;
+import main.stats.Ability;
 
 public class AbilityCheck extends Roll {
 
-    protected MainStat mainStat;
+    protected Ability ability;
 
-    protected Integer mainStatBonus;
+    protected Integer abilityModifier;
 
-    public AbilityCheck(MainStat mainStat, Integer mainStatBonus) {
+    public AbilityCheck(Ability ability, Integer abilityModifier) {
         super(1, new Die(DiceType.D20));
-        this.mainStat = mainStat;
-        this.mainStatBonus = mainStatBonus;
+        this.ability = ability;
+        this.abilityModifier = abilityModifier;
     }
 
     @Override
     protected Integer singleRoll() {
-        return die.roll() + mainStatBonus;
+        return super.singleRoll() + abilityModifier;
     }
 
     private AbilityCheck(Integer numberOfDice, Die die) {

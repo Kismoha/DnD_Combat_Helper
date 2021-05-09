@@ -1,38 +1,22 @@
 package main.rolls;
 
-import main.stats.MainStat;
+import main.stats.Ability;
+import main.stats.Skill;
 
-public class SkillCheck extends AbilityCheck {
+public class SkillCheck extends ProficientCheck {
 
-    protected boolean proficient;
+    private Skill skill;
 
-    protected Integer proficiencyBonus;
-
-    public SkillCheck(MainStat mainStat, Integer mainStatBonus, boolean proficient, Integer proficiencyBonus) {
-        super(mainStat, mainStatBonus);
-        this.proficient = proficient;
-        this.proficiencyBonus = proficiencyBonus;
+    public SkillCheck(Skill skill, Ability mainStat, Integer abilityModifier, boolean proficient, Integer proficiencyBonus) {
+        super(mainStat, abilityModifier, proficient, proficiencyBonus);
+        this.skill = skill;
     }
 
-    @Override
-    protected Integer singleRoll() {
-        Integer bonus = proficient ? mainStatBonus + proficiencyBonus : mainStatBonus;
-        return die.roll() + bonus;
+    public Skill getSkill() {
+        return skill;
     }
 
-    public boolean isProficient() {
-        return proficient;
-    }
-
-    public void setProficient(boolean proficient) {
-        this.proficient = proficient;
-    }
-
-    public Integer getProficiencyBonus() {
-        return proficiencyBonus;
-    }
-
-    public void setProficiencyBonus(Integer proficiencyBonus) {
-        this.proficiencyBonus = proficiencyBonus;
+    public void setSkill(Skill skill) {
+        this.skill = skill;
     }
 }

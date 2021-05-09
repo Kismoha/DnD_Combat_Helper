@@ -1,6 +1,6 @@
 package main.stats;
 
-public enum MainStat {
+public enum Ability {
     STR("Strength"),
     DEX("Dexterity"),
     CON("Constitution"),
@@ -10,15 +10,11 @@ public enum MainStat {
 
     private String name;
 
-    MainStat(String name){
+    Ability(String name){
         this.name = name;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

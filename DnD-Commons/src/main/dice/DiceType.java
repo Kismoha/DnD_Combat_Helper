@@ -21,15 +21,7 @@ public enum DiceType {
         return sides;
     }
 
-    public void setSides(Integer sides) {
-        this.sides = sides;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
